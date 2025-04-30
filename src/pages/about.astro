@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About Us - NALEA Initiative">
+  <!-- Hero Section -->
+  <section 
+    class="relative h-[60vh] bg-cover bg-center flex items-center justify-center text-white text-center"
+    style="background-image: url('/about-hero.jpg');"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+    <div class="relative z-10 px-4 max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold">About NALEA Initiative</h1>
+      <p class="mt-4 text-lg">Driven by compassion. Built on hope. Focused on dignity for all.</p>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <h2 class="text-2xl font-bold text-indigo-700 mb-4">Our Mission</h2>
+      <p class="text-gray-700">
+        To uplift and empower Kenya's most vulnerable children and youth by providing essential support in nutrition, rehabilitation, education, and personal dignity. We are committed to creating inclusive, sustainable, and community-driven solutions.
+      </p>
+    </div>
+    <div>
+      <h2 class="text-2xl font-bold text-indigo-700 mb-4">Our Vision</h2>
+      <p class="text-gray-700">
+        A Kenya where every child, regardless of ability or background, has equal access to food, health, skills, and opportunities to thrive.
+      </p>
+    </div>
+  </section>
+
+  <!-- Who We Are -->
+  <section class="bg-gray-50 py-16 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-indigo-700 mb-6">Who We Are</h2>
+      <p class="text-gray-700 leading-relaxed">
+        NALEA Initiative was founded by <strong>Nelly Adhiambo</strong>, <strong>Kennedy Brian</strong>, and other like-minded young people passionate about making a tangible difference in the lives of disadvantaged children and families. What began as a local feeding project in Ongata Rongai has grown into a nationwide movement with programs in Kibra, Nairobi CBD, Siaya, and beyond.
+      </p>
+      <p class="mt-4 text-gray-700">
+        We work closely with communities to deliver impactful, culturally sensitive, and sustainable programs—addressing everything from food insecurity and disability rehabilitation to digital skills and menstrual hygiene education.
+      </p>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl font-bold text-center text-indigo-700 mb-8">Our Core Values</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="p-6 bg-white shadow rounded">
+        <h3 class="text-lg font-semibold text-indigo-600">Compassion</h3>
+        <p class="text-gray-600 mt-2">We lead with love and empathy in all we do.</p>
+      </div>
+      <div class="p-6 bg-white shadow rounded">
+        <h3 class="text-lg font-semibold text-indigo-600">Equity</h3>
+        <p class="text-gray-600 mt-2">We believe every child deserves the same opportunities and care.</p>
+      </div>
+      <div class="p-6 bg-white shadow rounded">
+        <h3 class="text-lg font-semibold text-indigo-600">Integrity</h3>
+        <p class="text-gray-600 mt-2">We are transparent, accountable, and community-driven.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-indigo-600 py-12 text-white text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-4">Want to Partner or Volunteer with Us?</h2>
+      <p class="mb-6">We're always looking for people who share our heart and vision. Let's build hope together.</p>
+      <a href="/get-involved" class="bg-white text-indigo-600 font-semibold px-6 py-3 rounded hover:bg-gray-100 transition">Get Involved</a>
+    </div>
+  </section>
+</BaseLayout>

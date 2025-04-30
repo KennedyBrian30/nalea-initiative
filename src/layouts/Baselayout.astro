@@ -1,0 +1,115 @@
+---
+import "../styles/global.css";
+export interface Props {
+  title?: string;
+  lang?: string;
+}
+const { title = "NALEA Initiative", lang = "en" } = Astro.props;
+
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
+  {
+    href: "/programs",  // Added direct link to programs page
+    label: "Our Programs",
+    submenu: [
+      { href: "/feeding", label: "Feeding Program" },
+      { href: "/rehab", label: "Rehabilitation" },
+      { href: "/disability", label: "Disability Awareness" },
+      { href: "/skills", label: "IT Skills Training" },
+      { href: "/hygiene", label: "Menstrual Hygiene" },
+      { href: "/clothing", label: "Clothing Support" },
+    ],
+  },
+  { href: "/impact", label: "Impact" },
+  { href: "/get-involved", label: "Get Involved" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
+];
+---
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NALEA Initiative - Supporting vulnerable children in Kenya" />
+    <meta name="keywords" content="charity, kenya, children, donation" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans overflow-x-hidden">
+    <!-- Header -->
+    <header class="bg-white shadow sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold text-indigo-700">NALEA Initiative</h1>
+        <nav class="space-x-6 text-sm font-medium" aria-label="Main navigation">
+          <button class="md:hidden" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <div class="hidden md:flex space-x-4 lg:space-x-6">
+            {navItems.map(item => (
+              <div class="relative group">
+                {item.submenu ? (
+                  <>
+                    <a 
+                      href={item.href} 
+                      class="hover:text-indigo-600" 
+                      aria-haspopup="true" 
+                      aria-expanded="false"
+                    >
+                      {item.label}
+                    </a>
+                    <div class="absolute left-0 mt-2 bg-white shadow-md rounded-md p-2 hidden group-hover:block md:group-focus-within:block" role="menu">
+                      {item.submenu.map(sub => (
+                        <a href={sub.href} class="block px-4 py-1 hover:bg-gray-100" role="menuitem">{sub.label}</a>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <a href={item.href} class={item.label === "Donate" ? "bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-500" : "hover:text-indigo-600"}>
+                    {item.label}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+      <slot />
+    </main>
+
+    <footer class="bg-white border-t mt-12 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-sm">
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2">About NALEA</h4>
+          <p>Founded by young changemakers, NALEA serves vulnerable children in Kenya through feeding programs, rehabilitation, and more.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2">Quick Links</h4>
+          <ul class="space-y-1">
+            <li><a href="/about" class="hover:text-indigo-600">About Us</a></li>
+            <li><a href="/programs" class="hover:text-indigo-600">Our Programs</a></li>
+            <li><a href="/impact" class="hover:text-indigo-600">Impact</a></li>
+            <li><a href="/contact" class="hover:text-indigo-600">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2">Contact Us</h4>
+          <p>Email: <a href="mailto:info@nalea.org" class="hover:text-indigo-600">info@nalea.org</a></p>
+          <p>Phone: <a href="tel:+254712345678" class="hover:text-indigo-600">+254 712 345678</a></p>
+          <p>Location: Ongata Rongai, Kenya</p>
+          <div class="mt-2 flex space-x-4">
+            <a href="https://facebook.com/nalea" class="text-indigo-600 hover:text-indigo-800">Facebook</a>
+            <a href="https://instagram.com/nalea" class="text-indigo-600 hover:text-indigo-800">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-xs text-gray-500 mt-6">© 2025 NALEA Initiative. All rights reserved.</div>
+    </footer>
+  </body>
+</html>
